@@ -1,0 +1,15 @@
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Application.deps.json
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Application.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Application.pdb
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.AssemblyInfoInputs.cache
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.AssemblyInfo.cs
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.csproj.CoreCompileInputs.cache
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\refint\CleanArchitecture.Application.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.pdb
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\ref\CleanArchitecture.Application.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Domain.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Domain.pdb
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.csproj.AssemblyReference.cache
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.csproj.CopyComplete
