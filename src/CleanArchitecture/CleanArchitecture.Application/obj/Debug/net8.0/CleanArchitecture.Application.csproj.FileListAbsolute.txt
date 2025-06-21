@@ -13,3 +13,4 @@ D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net8.0\CleanArchitecture.Domain.pdb
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.csproj.AssemblyReference.cache
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.csproj.CopyComplete
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net8.0\CleanArchitecture.Application.sourcelink.json

@@ -62,3 +62,4 @@ D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\M
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\System.CodeDom.dll
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Bogus.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\obj\Debug\net8.0\CleanArchitecture.Api.sourcelink.json

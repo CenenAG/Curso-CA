@@ -17,3 +17,4 @@ D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Infrastructure\obj\Deb
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Infrastructure\bin\Debug\net8.0\CleanArchitecture.Infrastructure.runtimeconfig.json
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Infrastructure\obj\Debug\net8.0\CleanArchitecture.Infrastructure.genruntimeconfig.cache
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Infrastructure\obj\Debug\net8.0\CleanArchitecture.Infrastructure.csproj.CopyComplete
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Infrastructure\obj\Debug\net8.0\CleanArchitecture.Infrastructure.sourcelink.json
