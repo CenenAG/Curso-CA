@@ -3,7 +3,7 @@ using CleanArchitecture.Domain.Shared;
 
 namespace CleanArchitecture.Domain.Vehiculos;
 
-public sealed class Vehiculo : Entity
+public sealed class Vehiculo : Entity<VehiculoId>
 {
     public Vehiculo()
     {
@@ -19,7 +19,7 @@ public sealed class Vehiculo : Entity
     public List<Accesorio>? Accesorios { get; private set; } = new();
 
     public Vehiculo(
-        Guid id,
+        VehiculoId id,
         Modelo modelo,
         Vin vin,
         Moneda precio,

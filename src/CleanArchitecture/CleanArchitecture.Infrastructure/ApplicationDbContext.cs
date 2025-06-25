@@ -60,6 +60,7 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
 
     private async Task PublishDomainEventAsync()
     {
+
         var domainEvents = ChangeTracker
             .Entries<IEntity>()
             .Where(entry => entry.State == EntityState.Added ||

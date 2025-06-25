@@ -1,20 +1,21 @@
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Alquileres.Events;
 using CleanArchitecture.Domain.Shared;
+using CleanArchitecture.Domain.Users;
 using CleanArchitecture.Domain.Vehiculos;
 
 namespace CleanArchitecture.Domain.Alquileres;
 
-public sealed class Alquiler : Entity
+public sealed class Alquiler : Entity<AlquilerId>
 {
     public Alquiler()
     {
 
     }
     private Alquiler(
-        Guid id,
-        Guid vehiculoId,
-        Guid userId,
+        AlquilerId id,
+        VehiculoId vehiculoId,
+        UserId userId,
         DateRange? duracion,
         Moneda? precioPorPeriodo,
         Moneda? precioMantenimiento,
@@ -35,8 +36,8 @@ public sealed class Alquiler : Entity
         FechaCreacion = fechaCreacion ?? DateTime.UtcNow;
     }
 
-    public Guid VehiculoId { get; private set; }
-    public Guid UserId { get; private set; }
+    public VehiculoId? VehiculoId { get; private set; }
+    public UserId? UserId { get; private set; }
     public Moneda? PrecioPorPeriodo { get; private set; }
     public Moneda? PrecioMantenimiento { get; private set; }
     public Moneda? PrecioAccesorios { get; private set; }
@@ -52,7 +53,7 @@ public sealed class Alquiler : Entity
 
     public static Alquiler Reservar(
         Vehiculo vehiculo,
-        Guid userId,
+        UserId userId,
         DateRange? duracion,
         DateTime? fechaCreacion,
         PrecioService precioService)
@@ -63,7 +64,7 @@ public sealed class Alquiler : Entity
         );
 
         var alquiler = new Alquiler(
-            Guid.NewGuid(),
+            AlquilerId.New(),
             vehiculo.Id,
             userId,
             duracion,

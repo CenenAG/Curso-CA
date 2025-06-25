@@ -3,14 +3,14 @@ using CleanArchitecture.Domain.Abstractions;
 
 namespace CleanArchitecture.Domain.Users;
 
-public class User : Entity
+public class User : Entity<UserId>
 {
     public User()
     {
 
     }
     private User(
-        Guid id,
+        UserId id,
         Nombre? nombre = null,
         Apellido? apellido = null,
         Email? email = null
@@ -30,7 +30,7 @@ public class User : Entity
         Email email)
     {
         var user = new User(
-            Guid.NewGuid(),
+            UserId.New(),
             nombre,
             apellido,
             email
