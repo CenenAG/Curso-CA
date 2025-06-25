@@ -1,6 +1,6 @@
 namespace CleanArchitecture.Domain.Abstractions;
 
-public abstract class Entity
+public abstract class Entity : IEntity
 {
     public Entity()
     {

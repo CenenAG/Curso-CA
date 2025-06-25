@@ -12,7 +12,7 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
     private readonly ILogger<ApplicationDbContext> _logger;
 
     public ApplicationDbContext(
-        DbContextOptions options, 
+        DbContextOptions options,
         IPublisher publisher,
         ILogger<ApplicationDbContext> logger) : base(options)
     {
@@ -46,7 +46,7 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
         {
             throw new ConcurrencyException("La excepcion por concurrencia en Base de Datos -> " + ex.Message, ex);
         }
-        catch (DbUpdateException )
+        catch (DbUpdateException)
         {
             var errors = new[] { new ValidationError("Database", "Error al actualizar la base de datos. Verifique los datos ingresados.") };
             throw new ValidationException(errors);
@@ -61,9 +61,9 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
     private async Task PublishDomainEventAsync()
     {
         var domainEvents = ChangeTracker
-            .Entries<Entity>()
-            .Where(entry => entry.State == EntityState.Added || 
-                           entry.State == EntityState.Modified || 
+            .Entries<IEntity>()
+            .Where(entry => entry.State == EntityState.Added ||
+                           entry.State == EntityState.Modified ||
                            entry.State == EntityState.Deleted)
             .Select(entry => entry.Entity)
             .SelectMany(entity =>
