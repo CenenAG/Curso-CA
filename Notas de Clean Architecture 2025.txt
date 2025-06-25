@@ -1,0 +1,192 @@
+Notas de Zen Confronta
+
+dotnet --list-sdks
+
+
+
+Comandos
+--------
+Solución
+--------
+Poner la version del .net para usar en la solución
+dotnet new globaljson --sdk-version=8.0.100-rc.2.23502.2 --forcé
+
+dotnet new sln --name CleanArchitecture
+
+Domain
+------
+dotnet new classlib -o src/CleanArchitecture/CleanArchitecture.Domain
+dotnet sln add src/CleanArchitecture/CleanArchitecture.Domain/CleanArchitecture.Domain.csproj
+
+para manejar los eventos de las entidades (notificaciones)
+dotnet add package MediatR.Contracts --version 2.0.1
+
+Application
+-----------
+dotnet new classlib -o .\src\CleanArchitecture\CleanArchitecture.Application
+dotnet sln add .\src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj
+
+dotnet add .\src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj reference .\src\CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj
+
+dotnet add package MediatR.Contracts --version 2.0.1
+
+dotnet add package MediatR --version 12.1.1
+
+dotnet add package Dapper --version 2.1.15
+
+dotnet add package Microsoft.Extensions.Logging.Abstracctions --version 8.0.0-rc.2.23479.6
+
+dotnet add package FluentValidation.DependencyInjectionExtensions  --version 11.8.0
+
+
+
+
+Infrastructure
+--------------
+ dotnet new classlib -o .\src\CleanArchitecture\CleanArchitecture.Infrastructure
+ dotnet sln add .\src\CleanArchitecture\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj
+
+dotnet add .\src\CleanArchitecture\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj  reference .\src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj                 
+
+
+ dotnet add package Microsoft.Extensions.Configuration.Abstractions --version 7.0.0
+
+ dotnet add package Microsoft.EntityFrameworkCore --version 7.0.11
+
+ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 7.0.11
+
+ dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.11
+
+ dotnet add package EFCore.NamingConventions --version 7.0.2
+
+ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.0-rc.1.23421.29
+ 
+
+
+Presentacion-Api
+----------------
+
+dotnet new webapi -o .\src\CleanArchitecture\CleanArchitecture.Api --name CleanArchitecture.Api
+
+dotnet sln add .\src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj
+
+dotnet add .\src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj reference .\src\CleanArchitecture\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj
+
+dotnet add .\src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj reference .\src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj
+
+
+
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.11
+
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.11
+
+dotnet tool install --global dotnet-ef --version 8.0.0-rc.2.23480.1
+
+dotnet tool uninstall dotnet-ef --global
+
+
+
+dotnet ef --verbose migrations add InitialCreate -p src\CleanArchitecture\CleanArchitecture.Infrastructure -s src\CleanArchitecture\CleanArchitecture.Api
+
+dotnet ef --verbose migrations add InitialCreate -p src\CleanArchitecture\CleanArchitecture.Infrastructure -s src\CleanArchitecture\CleanArchitecture.Api
+
+dotnet ef database update -p src\CleanArchitecture\CleanArchitecture.Infrastructure -s src\CleanArchitecture\CleanArchitecture.Api --context ApplicationDbContext
+
+dotnet run --project .\src\CleanArchitecture\CleanArchitecture.Api
+
+dotnet add package Bogus --version 34.0.0 paso a 34.0.1
+
+
+ATHENTICATION
+-------------
+
+dotnet add package BCrypt.Net-Next --version 4.0.3 
+en application
+
+
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.1
+en infrastructure
+
+
+
+
+dotnet add package Serilog.AspNetCore --version 8.0.0
+
+dotnet add package Serilog.Sinks.Seq --version 6.0.0
+
+dotnet add package LinqKit.Microsoft.EntityFrameworkCore --version 7.1.4
+
+dotnet add package Asp.Versioning.Mvc --version 8.0.0
+
+dotnet add package Asp.Versioning.Mvc.ApiExplorer --version 8.0.0
+
+en infra
+dotnet add package Quartz.Extensions.Hosting --version 3.7.0
+
+
+dotnet sln add .\test\CleanArchitecture\CleanArchitecture.Domain.UnitTests\CleanArchitecture.Domain.UnitTests.csproj
+dotnet add .\test\CleanArchitecture\CleanArchitecture.Domain.UnitTests\CleanArchitecture.Domain.UnitTests.csproj reference .\src\CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj
+
+dotnet sln add .\test\CleanArchitecture\CleanArchitecture.Application.UnitTests\CleanArchitecture.Application.UnitTests.csproj
+dotnet add .\test\CleanArchitecture\CleanArchitecture.Application.UnitTests\CleanArchitecture.Application.UnitTests.csproj reference .\src\CleanArchitecture\CleanArchitecture.Application\CleanArchitecture.Application.csproj
+
+dotnet sln add .\test\CleanArchitecture\CleanArchitecture.Application.IntegrationTests\CleanArchitecture.Application.IntegrationTests.csproj
+dotnet add .\test\CleanArchitecture\CleanArchitecture.Application.IntegrationTests\CleanArchitecture.Application.IntegrationTests.csproj reference .\src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj
+
+dotnet add package Testcontainers.PostgreSql --version 3.7.0
+
+
+
+
+dotnet add package XUnit --version 2.6.6
+dotnet add package XUnit.Runner.VisualStudio --version 2.5.6
+dotnet add package FluentAssertions --version 6.12.0
+dotnet add package Microsoft.Net.Test.Sdk --version 17.9.0
+dotnet add package Coverlet.Collector --version 6.0.0
+dotnet add package NSubstitute --version 5.1.0
+
+dotnet add package Testcontainers.PostgreSql --version 3.7.0
+dotnet add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.1
+
+dotnet add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.0-rc.2.23480.2
+dotnet add package Microsoft.Net.Test.Sdk --version 17.9.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+…………………………………………
+dotnet ef migration add CreateInitialSchema --project Pacagroup.Ecommerce.Persistence --startup-project Pacagroup.Ecommerce.Services.WebApi --output-dir Migrations --context ApplicationDbContext
+
+ dotnet ef database update --project Pacagroup.Ecommerce.Persistence --startup-project Pacagroup.Ecommerce.Services.WebApi --context ApplicationDbContext
+
+----------------------------------------------
+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
+
+
+
+--------------------------------------------
+
+Crear la entidad en dominio
+Crear interfase en dominio repo
+crear en infra configuración
+crear repositorio interfase en infra
+Lista de errores para la entidad
+agregarlo en inyección de dependencias
+
+
+
+-----------------------------------------------------------
+dotnet ef migration add CreateInitialSchema --project Pacagroup.Ecommerce.Persistence --startup-project Pacagroup.Ecommerce.Services.WebApi --output-dir Migrations --context ApplicationDbContext
+docker compose -f docker-compose.yml -f docker-compose.override.yml up -d

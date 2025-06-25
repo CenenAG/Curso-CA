@@ -20,8 +20,11 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(user => user.Apellido).HasMaxLength(200)
         .HasConversion(apellido => apellido!.Value, value => new Apellido(value));
 
-        builder.Property(user => user.Email).HasMaxLength(200)
+        builder.Property(user => user.Email).HasMaxLength(400)
         .HasConversion(email => email!.Value, value => new Domain.Users.Email(value));
+
+        builder.Property(user => user.PasswordHash).HasMaxLength(2000)
+        .HasConversion(passwordHash => passwordHash!.Value, value => new PasswordHash(value));
 
         builder.HasIndex(user => user.Email).IsUnique();
 
