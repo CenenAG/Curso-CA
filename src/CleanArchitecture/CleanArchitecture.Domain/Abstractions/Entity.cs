@@ -27,4 +27,5 @@ public abstract class Entity<TEntityId> : IEntity
     {
         _domainEvents.Add(domainEvent);
     }
+
 }
