@@ -1,4 +1,5 @@
 using CleanArchitecture.Application.Users.LoginUser;
+using CleanArchitecture.Application.Users.RegisterUser;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,28 @@ public class UsersController : ControllerBase
         CancellationToken cancellationToken)
     {
         var command = new LoginCommand(request.Email, request.Password);
+        var result = await _sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return Unauthorized(result.Error);
+        }
+
+        return Ok(result.Value);
+    }
+
+    [AllowAnonymous]
+    [HttpPost("register")]
+    public async Task<IActionResult> Register(
+        [FromBody] RegisterUserRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new RegisterUserCommand(
+            request.Email,
+            request.Password,
+            request.Nombre,
+            request.Apellido);
+
         var result = await _sender.Send(command, cancellationToken);
 
         if (result.IsFailure)

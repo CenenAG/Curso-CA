@@ -36,8 +36,9 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 
-app.ApplyMigration();
+await app.ApplyMigration();
 app.SeedData();
+app.SeedDataAuthentication();
 
 app.UseCustomExceptionHandler();
 

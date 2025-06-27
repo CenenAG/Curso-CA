@@ -1,0 +1,24 @@
+
+services:
+  kleanarchitecturedb:
+    container_name: kleanarchitecturedb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=kleanarchitecture
+    restart: always
+    volumes:
+      - ./.containers/database:/var/lib/postgresql/data
+    ports:
+      - 5435:5432
+
+  kleanarchitecturereapi:
+    container_name: kleanarchitecturereapi   
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - "ConnectionStrings__Database=Host=kleanarchitecturedb;Port=5432;Database=kleanarchitecture;Username=postgres;Password=postgres;"
+    depends_on:
+      - kleanarchitecturedb
+    ports:
+      - 9200:5000

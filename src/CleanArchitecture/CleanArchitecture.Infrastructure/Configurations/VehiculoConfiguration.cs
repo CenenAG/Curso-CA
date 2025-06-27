@@ -15,8 +15,14 @@ internal sealed class VehiculoConfiguration : IEntityTypeConfiguration<Vehiculo>
         builder.Property(vehiculo => vehiculo.Id)
         .HasConversion(id => id.Value, value => new VehiculoId(value));
 
-
-        builder.OwnsOne<Direccion>(vehiculo => vehiculo.Direccion);
+        builder.OwnsOne(vehiculo => vehiculo.Direccion, direccionBuilder =>
+        {
+            direccionBuilder.Property(d => d.Calle).HasColumnName("direccion_calle");
+            direccionBuilder.Property(d => d.Ciudad).HasColumnName("direccion_ciudad");
+            direccionBuilder.Property(d => d.Provincia).HasColumnName("direccion_provincia");
+            direccionBuilder.Property(d => d.Departamento).HasColumnName("direccion_departamento");
+            direccionBuilder.Property(d => d.Pais).HasColumnName("direccion_pais").IsRequired();
+        });
 
         builder.Property(vehiculo => vehiculo.Modelo)
         .HasMaxLength(200)

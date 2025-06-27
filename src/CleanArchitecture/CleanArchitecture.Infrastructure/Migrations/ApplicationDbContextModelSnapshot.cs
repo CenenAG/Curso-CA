@@ -25,7 +25,6 @@ namespace CleanArchitecture.Infrastructure.Migrations
             modelBuilder.Entity("CleanArchitecture.Domain.Alquileres.Alquiler", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -53,11 +52,11 @@ namespace CleanArchitecture.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("status");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.Property<Guid>("VehiculoId")
+                    b.Property<Guid?>("VehiculoId")
                         .HasColumnType("uuid")
                         .HasColumnName("vehiculo_id");
 
@@ -76,11 +75,10 @@ namespace CleanArchitecture.Infrastructure.Migrations
             modelBuilder.Entity("CleanArchitecture.Domain.Reviews.Review", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<Guid>("AlquilerId")
+                    b.Property<Guid?>("AlquilerId")
                         .HasColumnType("uuid")
                         .HasColumnName("alquiler_id");
 
@@ -97,11 +95,11 @@ namespace CleanArchitecture.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("rating");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.Property<Guid>("VehiculoId")
+                    b.Property<Guid?>("VehiculoId")
                         .HasColumnType("uuid")
                         .HasColumnName("vehiculo_id");
 
@@ -123,7 +121,6 @@ namespace CleanArchitecture.Infrastructure.Migrations
             modelBuilder.Entity("CleanArchitecture.Domain.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -133,14 +130,19 @@ namespace CleanArchitecture.Infrastructure.Migrations
                         .HasColumnName("apellido");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)")
                         .HasColumnName("email");
 
                     b.Property<string>("Nombre")
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)")
                         .HasColumnName("nombre");
+
+                    b.Property<string>("PasswordHash")
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)")
+                        .HasColumnName("password_hash");
 
                     b.HasKey("Id")
                         .HasName("pk_users");
@@ -155,7 +157,6 @@ namespace CleanArchitecture.Infrastructure.Migrations
             modelBuilder.Entity("CleanArchitecture.Domain.Vehiculos.Vehiculo", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -194,16 +195,12 @@ namespace CleanArchitecture.Infrastructure.Migrations
                     b.HasOne("CleanArchitecture.Domain.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_alquileres_user_user_id");
+                        .HasConstraintName("fk_alquileres_user_user_temp_id");
 
                     b.HasOne("CleanArchitecture.Domain.Vehiculos.Vehiculo", null)
                         .WithMany()
                         .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_alquileres_vehiculo_vehiculo_id");
+                        .HasConstraintName("fk_alquileres_vehiculo_vehiculo_temp_id");
 
                     b.OwnsOne("CleanArchitecture.Domain.Shared.Moneda", "PrecioAccesorios", b1 =>
                         {
@@ -340,23 +337,17 @@ namespace CleanArchitecture.Infrastructure.Migrations
                     b.HasOne("CleanArchitecture.Domain.Alquileres.Alquiler", null)
                         .WithMany()
                         .HasForeignKey("AlquilerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_reviews_alquileres_alquiler_id");
 
                     b.HasOne("CleanArchitecture.Domain.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_reviews_user_user_id");
+                        .HasConstraintName("fk_reviews_user_user_temp_id");
 
                     b.HasOne("CleanArchitecture.Domain.Vehiculos.Vehiculo", null)
                         .WithMany()
                         .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_reviews_vehiculo_vehiculo_id");
+                        .HasConstraintName("fk_reviews_vehiculo_vehiculo_temp_id");
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.Vehiculos.Vehiculo", b =>
@@ -380,6 +371,7 @@ namespace CleanArchitecture.Infrastructure.Migrations
                                 .HasColumnName("direccion_departamento");
 
                             b1.Property<string>("Pais")
+                                .IsRequired()
                                 .HasColumnType("text")
                                 .HasColumnName("direccion_pais");
 

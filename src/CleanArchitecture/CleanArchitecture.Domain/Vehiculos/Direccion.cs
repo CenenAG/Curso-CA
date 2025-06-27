@@ -5,5 +5,5 @@ public record Direccion(
      string? Ciudad,
      string? Provincia,
      string? Departamento,
-     string? Pais
+     string Pais
 );

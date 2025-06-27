@@ -1,0 +1,10 @@
+
+services:
+  kleanarchitecturedb:
+    image: postgres:16.0
+
+  kleanarchitecturereapi:
+    image: ${DOCKER_REGISTRY-}kleanarchitecturereapi
+    build:
+      context: .
+      dockerfile: src/CleanArchitecture/CleanArchitecture.Api/Dockerfile
