@@ -1,5 +1,6 @@
 using System.Security.Cryptography.X509Certificates;
 using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Roles;
 
 namespace CleanArchitecture.Domain.Users;
 
@@ -26,6 +27,7 @@ public class User : Entity<UserId>
     public Apellido? Apellido { get; private set; }
     public Email? Email { get; private set; }
     public PasswordHash? PasswordHash { get; private set; }
+    public ICollection<Role>? Roles { get; private set; }
 
     public static User Create(
         Nombre nombre,

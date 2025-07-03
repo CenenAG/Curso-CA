@@ -1,5 +1,8 @@
+using CleanArchitecture.Application.Users.GetUsersPagination;
 using CleanArchitecture.Application.Users.LoginUser;
 using CleanArchitecture.Application.Users.RegisterUser;
+using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Users;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -54,5 +57,23 @@ public class UsersController : ControllerBase
         }
 
         return Ok(result.Value);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("getPagination", Name = "PaginationUser")]
+    [ProducesResponseType(typeof(PagedResults<User, UserId>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<PagedResults<User, UserId>>> GetPagination(
+            [FromQuery] GetUsersPaginationQuery query,
+            CancellationToken cancellationToken)
+    {
+        var resultados = await _sender.Send(query, cancellationToken);
+
+        if (resultados.IsFailure)
+        {
+            return BadRequest(resultados.Error);
+        }
+
+        return Ok(resultados);
     }
 }

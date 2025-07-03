@@ -1,4 +1,10 @@
+using CleanArchitecture.Application.Vehiculos.GetVehiculosByPagination;
+using CleanArchitecture.Application.Vehiculos.GetVehiculosGenPagination;
 using CleanArchitecture.Application.Vehiculos.SearchVehiculos;
+using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Permissions;
+using CleanArchitecture.Domain.Vehiculos;
+using CleanArchitecture.Infrastructure.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +23,7 @@ public class VehiculosController : ControllerBase
         _sender = sender;
     }
 
-    [Authorize]
+    [HasPermission(PermissionEnum.ReadUser)]
     [HttpGet("search")]
     public async Task<IActionResult> SearchVehiculos(
             DateOnly startDate,
@@ -27,5 +33,34 @@ public class VehiculosController : ControllerBase
         var query = new SearchVehiculosQuery(startDate, endDate);
         var resultados = await _sender.Send(query, cancellationToken);
         return Ok(resultados.Value);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("getPagination", Name = "PaginationVehiculos")]
+    [ProducesResponseType(typeof(PaginationResult<Vehiculo, VehiculoId>), (int)StatusCodes.Status200OK)]
+    public async Task<Result<PaginationResult<Vehiculo, VehiculoId>>> GetVehiculosByPagination(
+        [FromQuery] GetVehiculosByPaginationQuery request,
+        CancellationToken cancellationToken)
+    {
+        var resultados = await _sender.Send(request, cancellationToken);
+        return resultados;
+    }
+
+    [AllowAnonymous]
+    [HttpGet("getGenPagination", Name = "genPaginationUser")]
+    [ProducesResponseType(typeof(PagedResults<Vehiculo, VehiculoId>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<PagedResults<Vehiculo, VehiculoId>>> GetPagination(
+           [FromQuery] GetVehiculosGenPaginationQuery query,
+           CancellationToken cancellationToken)
+    {
+        var resultados = await _sender.Send(query, cancellationToken);
+
+        if (resultados.IsFailure)
+        {
+            return BadRequest(resultados.Error);
+        }
+
+        return Ok(resultados);
     }
 }

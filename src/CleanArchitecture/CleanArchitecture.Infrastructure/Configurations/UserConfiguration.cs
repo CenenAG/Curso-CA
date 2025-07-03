@@ -28,6 +28,9 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasIndex(user => user.Email).IsUnique();
 
+        builder.HasMany(user => user.Roles)
+            .WithMany()
+            .UsingEntity<UserRole>();
 
     }
 }

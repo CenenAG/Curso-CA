@@ -85,6 +85,36 @@
           }
         }
       },
+      "LinqKit.Core/1.2.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/LinqKit.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/LinqKit.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "LinqKit.Microsoft.EntityFrameworkCore/7.1.4": {
+        "type": "package",
+        "dependencies": {
+          "LinqKit.Core": "1.2.4",
+          "Microsoft.EntityFrameworkCore": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/12.1.1": {
         "type": "package",
         "dependencies": {
@@ -565,6 +595,19 @@
           }
         }
       },
+      "Serilog/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Serilog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Serilog.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "type": "package",
         "compile": {
@@ -642,8 +685,10 @@
           "CleanArchitecture.Domain": "1.0.0",
           "Dapper": "2.1.15",
           "FluentValidation.DependencyInjectionExtensions": "11.8.0",
+          "LinqKit.Microsoft.EntityFrameworkCore": "7.1.4",
           "MediatR": "12.1.1",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0-rc.2.23479.6"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0-rc.2.23479.6",
+          "Serilog": "3.1.1"
         },
         "compile": {
           "bin/placeholder/CleanArchitecture.Application.dll": {}
@@ -786,6 +831,51 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "LinqKit.Core/1.2.4": {
+      "sha512": "cR88ymKSFZu1XZnmUzGl8eyeLRqnpiTMZBf+DBSr4kWRmfr40mwNdyLooCe3Or/WbkkmCo5erypLdmZTsNXi+w==",
+      "type": "package",
+      "path": "linqkit.core/1.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/LinqKit.Core.dll",
+        "lib/net35/LinqKit.Core.xml",
+        "lib/net40/LinqKit.Core.dll",
+        "lib/net40/LinqKit.Core.xml",
+        "lib/net45/LinqKit.Core.dll",
+        "lib/net45/LinqKit.Core.xml",
+        "lib/netstandard1.3/LinqKit.Core.dll",
+        "lib/netstandard1.3/LinqKit.Core.xml",
+        "lib/netstandard2.0/LinqKit.Core.dll",
+        "lib/netstandard2.0/LinqKit.Core.xml",
+        "lib/netstandard2.1/LinqKit.Core.dll",
+        "lib/netstandard2.1/LinqKit.Core.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/LinqKit.Core.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/LinqKit.Core.xml",
+        "lib/portable45-net45+win8+wp8+wpa81/LinqKit.Core.dll",
+        "lib/portable45-net45+win8+wp8+wpa81/LinqKit.Core.xml",
+        "lib/uap10.0.10240/LinqKit.Core.dll",
+        "lib/uap10.0.10240/LinqKit.Core.pri",
+        "lib/uap10.0.10240/LinqKit.Core.xml",
+        "linqkit.core.1.2.4.nupkg.sha512",
+        "linqkit.core.nuspec"
+      ]
+    },
+    "LinqKit.Microsoft.EntityFrameworkCore/7.1.4": {
+      "sha512": "Bsq1/HXOC29GjviRq971qYz3/+9GWKEKO4QdoaEjMt5HHHx8b4yHL8RGzohdiqjTjOOVM5oZF9eaOpLcFu8uUA==",
+      "type": "package",
+      "path": "linqkit.microsoft.entityframeworkcore/7.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/LinqKit.Microsoft.EntityFrameworkCore.dll",
+        "lib/net6.0/LinqKit.Microsoft.EntityFrameworkCore.xml",
+        "lib/net7.0/LinqKit.Microsoft.EntityFrameworkCore.dll",
+        "lib/net7.0/LinqKit.Microsoft.EntityFrameworkCore.xml",
+        "linqkit.microsoft.entityframeworkcore.7.1.4.nupkg.sha512",
+        "linqkit.microsoft.entityframeworkcore.nuspec"
       ]
     },
     "MediatR/12.1.1": {
@@ -1451,6 +1541,33 @@
         "postgresql.png"
       ]
     },
+    "Serilog/3.1.1": {
+      "sha512": "P6G4/4Kt9bT635bhuwdXlJ2SCqqn2nhh4gqFqQueCOr9bK/e7W9ll/IoX1Ter948cV2Z/5+5v8pAfJYUISY03A==",
+      "type": "package",
+      "path": "serilog/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net462/Serilog.dll",
+        "lib/net462/Serilog.xml",
+        "lib/net471/Serilog.dll",
+        "lib/net471/Serilog.xml",
+        "lib/net5.0/Serilog.dll",
+        "lib/net5.0/Serilog.xml",
+        "lib/net6.0/Serilog.dll",
+        "lib/net6.0/Serilog.xml",
+        "lib/net7.0/Serilog.dll",
+        "lib/net7.0/Serilog.xml",
+        "lib/netstandard2.0/Serilog.dll",
+        "lib/netstandard2.0/Serilog.xml",
+        "lib/netstandard2.1/Serilog.dll",
+        "lib/netstandard2.1/Serilog.xml",
+        "serilog.3.1.1.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
     "System.CodeDom/4.4.0": {
       "sha512": "2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
       "type": "package",
@@ -1662,6 +1779,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1711,7 +1833,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -19,6 +19,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Schema}://localhost:{ServicePort}/api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Test"
+      }
+    },
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,

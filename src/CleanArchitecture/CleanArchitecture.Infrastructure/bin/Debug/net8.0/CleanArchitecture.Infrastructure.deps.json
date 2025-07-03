@@ -77,6 +77,26 @@
           }
         }
       },
+      "LinqKit.Core/1.2.4": {
+        "runtime": {
+          "lib/netstandard2.1/LinqKit.Core.dll": {
+            "assemblyVersion": "1.2.4.0",
+            "fileVersion": "1.2.4.0"
+          }
+        }
+      },
+      "LinqKit.Microsoft.EntityFrameworkCore/7.1.4": {
+        "dependencies": {
+          "LinqKit.Core": "1.2.4",
+          "Microsoft.EntityFrameworkCore": "7.0.11"
+        },
+        "runtime": {
+          "lib/net7.0/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "7.1.4.0",
+            "fileVersion": "7.1.4.0"
+          }
+        }
+      },
       "MediatR/12.1.1": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
@@ -321,6 +341,14 @@
           }
         }
       },
+      "Serilog/3.1.1": {
+        "runtime": {
+          "lib/net7.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -353,11 +381,16 @@
           "CleanArchitecture.Domain": "1.0.0",
           "Dapper": "2.1.15",
           "FluentValidation.DependencyInjectionExtensions": "11.8.0",
+          "LinqKit.Microsoft.EntityFrameworkCore": "7.1.4",
           "MediatR": "12.1.1",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0-rc.2.23479.6"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0-rc.2.23479.6",
+          "Serilog": "3.1.1"
         },
         "runtime": {
-          "CleanArchitecture.Application.dll": {}
+          "CleanArchitecture.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CleanArchitecture.Domain/1.0.0": {
@@ -365,7 +398,10 @@
           "MediatR.Contracts": "2.0.1"
         },
         "runtime": {
-          "CleanArchitecture.Domain.dll": {}
+          "CleanArchitecture.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -417,6 +453,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "LinqKit.Core/1.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cR88ymKSFZu1XZnmUzGl8eyeLRqnpiTMZBf+DBSr4kWRmfr40mwNdyLooCe3Or/WbkkmCo5erypLdmZTsNXi+w==",
+      "path": "linqkit.core/1.2.4",
+      "hashPath": "linqkit.core.1.2.4.nupkg.sha512"
+    },
+    "LinqKit.Microsoft.EntityFrameworkCore/7.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bsq1/HXOC29GjviRq971qYz3/+9GWKEKO4QdoaEjMt5HHHx8b4yHL8RGzohdiqjTjOOVM5oZF9eaOpLcFu8uUA==",
+      "path": "linqkit.microsoft.entityframeworkcore/7.1.4",
+      "hashPath": "linqkit.microsoft.entityframeworkcore.7.1.4.nupkg.sha512"
     },
     "MediatR/12.1.1": {
       "type": "package",
@@ -613,6 +663,13 @@
       "sha512": "sha512-cHEgEz0ldXc9wVANs8sJqC+3eilqefrkasCBgaVT0tyj8tb1p3/pwy2ngjboNkDG3M0z+xJsJ4jC5p8wySAM3w==",
       "path": "npgsql.entityframeworkcore.postgresql/7.0.11",
       "hashPath": "npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512"
+    },
+    "Serilog/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P6G4/4Kt9bT635bhuwdXlJ2SCqqn2nhh4gqFqQueCOr9bK/e7W9ll/IoX1Ter948cV2Z/5+5v8pAfJYUISY03A==",
+      "path": "serilog/3.1.1",
+      "hashPath": "serilog.3.1.1.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",
