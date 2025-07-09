@@ -78,3 +78,7 @@ D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\obj\Debug\net8.0\C
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\obj\Debug\net8.0\ref\CleanArchitecture.Api.dll
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\LinqKit.Core.dll
 D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\LinqKit.Microsoft.EntityFrameworkCore.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Asp.Versioning.Abstractions.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Asp.Versioning.Http.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.dll
+D:\repos\Curso-CA\src\CleanArchitecture\CleanArchitecture.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.ApiExplorer.dll

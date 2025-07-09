@@ -7,6 +7,7 @@ using CleanArchitecture.Api.OptionsSetup;
 using CleanArchitecture.Application.Authentication;
 using CleanArchitecture.Infrastructure.Authentication;
 using Serilog;
+using CleanArchitecture.Api.Documentation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +29,13 @@ builder.Services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHand
 builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+
+builder.Services.AddSwaggerGen(options =>
+    {
+        options.CustomSchemaIds(type => type.ToString());
+    });
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -38,7 +45,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        foreach (var description in app.DescribeApiVersions())
+        {
+            var url = $"/swagger/{description.GroupName}/swagger.json";
+            var name = description.GroupName.ToUpperInvariant();
+            options.SwaggerEndpoint(url, name);
+        }
+    });
 }
 
 // app.UseHttpsRedirection();

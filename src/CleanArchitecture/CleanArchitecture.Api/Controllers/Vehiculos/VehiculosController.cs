@@ -1,3 +1,5 @@
+using Asp.Versioning;
+using CleanArchitecture.Api.Utils;
 using CleanArchitecture.Application.Vehiculos.GetVehiculosByPagination;
 using CleanArchitecture.Application.Vehiculos.GetVehiculosGenPagination;
 using CleanArchitecture.Application.Vehiculos.SearchVehiculos;
@@ -13,7 +15,8 @@ namespace CleanArchitecture.Api.Controllers.Vehiculos;
 
 
 [ApiController]
-[Route("api/vehiculos")]
+[ApiVersion(ApiVersions.V1)]
+[Route("api/v{version:apiVersion}/vehiculos")]
 public class VehiculosController : ControllerBase
 {
     private readonly ISender _sender;

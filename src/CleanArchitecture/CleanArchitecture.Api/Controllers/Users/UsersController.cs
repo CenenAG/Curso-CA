@@ -1,3 +1,6 @@
+using Asp.Versioning;
+using CleanArchitecture.Api.Utils;
+using CleanArchitecture.Application.Users.GetUsersDapperPagination;
 using CleanArchitecture.Application.Users.GetUsersPagination;
 using CleanArchitecture.Application.Users.LoginUser;
 using CleanArchitecture.Application.Users.RegisterUser;
@@ -10,7 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CleanArchitecture.Api.Controllers.Users;
 
 [ApiController]
-[Route("api/users")]
+[ApiVersion(ApiVersions.V1)]
+[Route("api/v{version:apiVersion}/users")]
 public class UsersController : ControllerBase
 {
     private readonly ISender _sender;
@@ -22,7 +26,8 @@ public class UsersController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("login")]
-    public async Task<IActionResult> Login(
+    [MapToApiVersion(ApiVersions.V1)]
+    public async Task<IActionResult> LoginV1(
         [FromBody] LoginUserRequest request,
         CancellationToken cancellationToken)
     {
@@ -66,6 +71,24 @@ public class UsersController : ControllerBase
     public async Task<ActionResult<PagedResults<User, UserId>>> GetPagination(
             [FromQuery] GetUsersPaginationQuery query,
             CancellationToken cancellationToken)
+    {
+        var resultados = await _sender.Send(query, cancellationToken);
+
+        if (resultados.IsFailure)
+        {
+            return BadRequest(resultados.Error);
+        }
+
+        return Ok(resultados);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("getPaginationDapper", Name = "PaginationUserDapper")]
+    [ProducesResponseType(typeof(PagedDapperResults<UserPaginationDapperData>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<PagedDapperResults<UserPaginationDapperData>>> GetPaginationDapper(
+        [FromQuery] GetUsersDapperPaginationQuery query,
+        CancellationToken cancellationToken)
     {
         var resultados = await _sender.Send(query, cancellationToken);
 

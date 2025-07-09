@@ -37,7 +37,7 @@ public class GetVehiculosGenPaginationQueryHandler
             pageNumber: request.PageNumber,
             pageSize: request.PageSize,
             orderBy: request.OrderBy!,
-            isAscending: request.OrdesAsc,
+            isAscending: request.OrderAsc,
             cancellationToken: cancellationToken);
 
         return pagedResultVehiculos;
