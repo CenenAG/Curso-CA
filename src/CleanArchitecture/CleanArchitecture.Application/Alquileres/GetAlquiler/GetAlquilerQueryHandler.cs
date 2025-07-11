@@ -23,25 +23,24 @@ internal sealed class GetAlquilerQueryHandler : IQueryHandler<GetAlquilerQuery, 
     {
         using var connection = _sqlConnectionFactory.CreateConnection();
 
-        var sql = """
-                SELECT id as Id, 
-                vehiculo_Id as VehiculoId, 
-                user_id as UserId,
-                status as Status,
-                precio_por_periodo_monto as PrecioAlquiler,
-                precio_por_periodo_tipo_moneda  as TipoMonedaAlquiler,
-                mantenimiento_monto as PrecioMantenimiento,
-                mantenimiento_tipo_moneda as TipoMonedaMantenimiento,
-                accesorios_monto as PrecioAccesorios,
-                accesorios_tipo_moneda as TipoMonedaAccesorios,
-                precio_total_monto as PrecioTotal,
-                precio_total_tipo_moneda as TipoMonedaPrecioTotal,
-                duracion_inicio as DuracionInicio,
-                duracion_fin as DuracionFinal,
-                fecha_creacion as FechaCreacion
-
-                FROM Alquileres 
-                WHERE Id = @AlquilerId
+        var sql = """               
+                 SELECT
+                    id AS Id,
+                    vehiculo_id AS VehiculoId,
+                    user_id AS UserId,
+                    status AS Status,
+                    precio_por_periodo_monto AS PrecioAlquiler,
+                    precio_por_periodo_tipo_moneda AS TipoMonedaAlquiler,
+                    precio_mantenimiento_monto AS PrecioMantenimiento,
+                    precio_mantenimiento_tipo_moneda AS TipoMonedaMantenimiento,
+                    precio_accesorios_monto AS AccesoriosPrecio,
+                    precio_accesorios_tipo_moneda AS TipoMonedaAccesorio,
+                    precio_total_monto AS PrecioTotal,
+                    precio_total_tipo_moneda AS PrecioTotalTipoMoneda,
+                    duracion_inicio AS DuracionInicio,
+                    duracion_fin AS DuracionFinal,
+                    fecha_creacion AS FechaCreacion
+                FROM alquileres WHERE id=@AlquilerId  
                 """;
 
         var alquiler = await connection.QueryFirstOrDefaultAsync<AlquilerResponse>(

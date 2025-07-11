@@ -8,6 +8,9 @@ using CleanArchitecture.Application.Authentication;
 using CleanArchitecture.Infrastructure.Authentication;
 using Serilog;
 using CleanArchitecture.Api.Documentation;
+using CleanArchitecture.Api.Controllers.Alquileres;
+using Asp.Versioning.Builder;
+using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +45,9 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
+app.MapGet("/", () => "Hello World");
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -74,5 +80,16 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+ApiVersionSet apiVersion = app.NewApiVersionSet()
+                                    .HasApiVersion(new ApiVersion(1))
+                                    .ReportApiVersions()
+                                    .Build();
+
+var routeGroupBuilder = app
+                        .MapGroup("/api/v{version:apiVersion}")
+                        .WithApiVersionSet(apiVersion);
+
+routeGroupBuilder.MapAlquilerEndPoints();
 
 app.Run();
