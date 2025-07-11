@@ -254,9 +254,17 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "NewtonSoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.7.0, )"
             }
           },
           "imports": [

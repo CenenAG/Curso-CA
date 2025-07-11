@@ -15,8 +15,8 @@ internal sealed class VehiculoRepository : Repository<Vehiculo, VehiculoId>, IVe
     {
         return await ApplySpecification(spec).ToListAsync(cancellationToken);
     }
-    public async Task<int> CountAsync(ISpecification<Vehiculo, VehiculoId> spec, CancellationToken cancellationToken = default)
-    {
-        return await ApplySpecification(spec).CountAsync(cancellationToken);
-    }
+    //public async Task<int> CountAsync(ISpecification<Vehiculo, VehiculoId> spec, CancellationToken cancellationToken = default)
+    //{
+    //    return await ApplySpecification(spec).CountAsync(cancellationToken);
+    //}
 }

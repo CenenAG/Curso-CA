@@ -315,6 +315,41 @@ namespace CleanArchitecture.Infrastructure.Migrations
                     b.ToTable("vehiculos", (string)null);
                 });
 
+            modelBuilder.Entity("CleanArchitecture.Infrastructure.Outbox.OutBoxMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Error")
+                        .HasColumnType("text")
+                        .HasColumnName("error");
+
+                    b.Property<DateTime>("OcurredOnUtc")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("ocurred_on_utc");
+
+                    b.Property<DateTime?>("ProcessedOnUtc")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("processed_on_utc");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("pk_outbox_messages");
+
+                    b.ToTable("outbox_messages", (string)null);
+                });
+
             modelBuilder.Entity("CleanArchitecture.Domain.Alquileres.Alquiler", b =>
                 {
                     b.HasOne("CleanArchitecture.Domain.Users.User", null)

@@ -24,7 +24,7 @@
       "launchBrowser": true,
       "launchUrl": "{Schema}://localhost:{ServicePort}/api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Test"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "https": {

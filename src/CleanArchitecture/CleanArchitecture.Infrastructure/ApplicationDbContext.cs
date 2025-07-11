@@ -1,23 +1,26 @@
+using CleanArchitecture.Application.Abstractions.Clock;
 using CleanArchitecture.Application.Exceptions;
 using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Infrastructure.Outbox;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace CleanArchitecture.Infrastructure;
 
 public class ApplicationDbContext : DbContext, IUnitOfWork
 {
-    private readonly IPublisher _publisher;
-    private readonly ILogger<ApplicationDbContext> _logger;
-
-    public ApplicationDbContext(
-        DbContextOptions options,
-        IPublisher publisher,
-        ILogger<ApplicationDbContext> logger) : base(options)
+    private static readonly JsonSerializerSettings jsonSerializerSettings = new()
     {
-        _publisher = publisher;
-        _logger = logger;
+        TypeNameHandling = TypeNameHandling.All
+    };
+
+    private readonly IDateTimeProvider _dateTimeProvider;
+
+    public ApplicationDbContext(DbContextOptions options, IDateTimeProvider dateTimeProvider) : base(options)
+    {
+        _dateTimeProvider = dateTimeProvider;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,9 +39,11 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         try
         {
-            var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+            //await PublishDomainEventAsync();
 
-            await PublishDomainEventAsync();
+            AddDomainEventsToOutBoxMessages();
+
+            var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
 
             return result;
         }
@@ -58,7 +63,34 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
         }
     }
 
-    private async Task PublishDomainEventAsync()
+    private void AddDomainEventsToOutBoxMessages()
+    {
+
+        var outBoxMessages = ChangeTracker
+            .Entries<IEntity>()
+            .Where(entry => entry.State == EntityState.Added ||
+                           entry.State == EntityState.Modified ||
+                           entry.State == EntityState.Deleted)
+            .Select(entry => entry.Entity)
+            .SelectMany(entity =>
+            {
+                var domainEvents = entity.GetDomainEvents();
+                entity.ClearDomainEvents();
+                return domainEvents;
+            }).Select(domainEvents => new OutBoxMessage(
+                Guid.NewGuid(),
+                _dateTimeProvider.CurrenTime,
+                domainEvents.GetType().Name,
+                JsonConvert.SerializeObject(domainEvents, jsonSerializerSettings)
+            ))
+                .ToList();
+
+        AddRange(outBoxMessages);
+
+    }
+
+
+    /*private async Task PublishDomainEventAsync()
     {
 
         var domainEvents = ChangeTracker
@@ -85,5 +117,5 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
             await _publisher.Publish(domainEvent, CancellationToken.None);
         }
 
-    }
+    }*/
 }
