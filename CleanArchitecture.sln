@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Api", "src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj", "{1F04F800-4EB4-408E-B33E-3F09A5B08222}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E0E7BE19-82F8-426E-A381-81CC1B39065C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArchitecture", "CleanArchitecture", "{15153CE7-CDFD-4AB3-9496-8168B116C21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain.UnitTests", "test\CleanArchitecture\CleanArchitecture.Domain.UnitTests\CleanArchitecture.Domain.UnitTests.csproj", "{A17E39CA-D527-49FA-A4CD-290123F1E771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +46,10 @@ Global
 		{1F04F800-4EB4-408E-B33E-3F09A5B08222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F04F800-4EB4-408E-B33E-3F09A5B08222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F04F800-4EB4-408E-B33E-3F09A5B08222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17E39CA-D527-49FA-A4CD-290123F1E771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17E39CA-D527-49FA-A4CD-290123F1E771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17E39CA-D527-49FA-A4CD-290123F1E771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17E39CA-D527-49FA-A4CD-290123F1E771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A8BD5E02-6377-432D-9569-BE79F81C58D7} = {5B531EA2-BCAD-4C3C-B6D0-9F82EF61A7A8}
@@ -47,5 +57,7 @@ Global
 		{9AA3CBB0-DD1A-4849-875C-EDD2A221D977} = {A8BD5E02-6377-432D-9569-BE79F81C58D7}
 		{7E35512F-05EC-4779-BA56-F6D8F23A9379} = {A8BD5E02-6377-432D-9569-BE79F81C58D7}
 		{1F04F800-4EB4-408E-B33E-3F09A5B08222} = {A8BD5E02-6377-432D-9569-BE79F81C58D7}
+		{15153CE7-CDFD-4AB3-9496-8168B116C21F} = {E0E7BE19-82F8-426E-A381-81CC1B39065C}
+		{A17E39CA-D527-49FA-A4CD-290123F1E771} = {15153CE7-CDFD-4AB3-9496-8168B116C21F}
 	EndGlobalSection
 EndGlobal
