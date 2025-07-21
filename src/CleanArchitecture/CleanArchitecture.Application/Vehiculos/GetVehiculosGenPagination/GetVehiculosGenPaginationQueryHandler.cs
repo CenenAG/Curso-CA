@@ -10,7 +10,7 @@ namespace CleanArchitecture.Application.Vehiculos.GetVehiculosGenPagination;
 
 
 
-public class GetVehiculosGenPaginationQueryHandler
+internal sealed class GetVehiculosGenPaginationQueryHandler
 : IQueryHandler<GetVehiculosGenPaginationQuery, PagedResults<Vehiculo, VehiculoId>>
 {
     private readonly IPaginationRepository<Vehiculo, VehiculoId> _paginationRepository;

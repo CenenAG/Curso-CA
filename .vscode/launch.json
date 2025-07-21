@@ -37,6 +37,61 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/src/CleanArchitecture/CleanArchitecture.Api/CleanArchitecture.Api.csproj"
             }
+        },
+        {
+            "name": "Debug GetUserSessionTest",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "dotnet",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/CleanArchitecture/CleanArchitecture.Api.FunctionalTests/CleanArchitecture.Api.FunctionalTests.csproj",
+                "--filter",
+                "FullyQualifiedName~GetUserSessionTest",
+                "--logger",
+                "console;verbosity=detailed",
+                "--verbosity",
+                "detailed"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Debug Specific Test Method",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "dotnet",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/CleanArchitecture/CleanArchitecture.Api.FunctionalTests/CleanArchitecture.Api.FunctionalTests.csproj",
+                "--filter",
+                "FullyQualifiedName~Get_ShouldReturnUser_WhenTokenExists",
+                "--logger",
+                "console;verbosity=detailed"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Functional Tests",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/test/CleanArchitecture/CleanArchitecture.Api.FunctionalTests/bin/Debug/net8.0/CleanArchitecture.Api.FunctionalTests.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
         }
     ]
 }

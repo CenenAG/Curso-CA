@@ -5,7 +5,7 @@ namespace CleanArchitecture.Domain.Vehiculos;
 
 public sealed class Vehiculo : Entity<VehiculoId>
 {
-    public Vehiculo()
+    private Vehiculo()
     {
 
     }

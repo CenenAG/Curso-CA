@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Application.Users.GetUsersPagination;
 
-public class GetUsersPaginationQueryHandler
+internal sealed class GetUsersPaginationQueryHandler
 : IQueryHandler<GetUsersPaginationQuery, PagedResults<User, UserId>>
 {
     private readonly IPaginationRepository<User, UserId> _paginationRepository;

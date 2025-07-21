@@ -6,7 +6,7 @@ using Dapper;
 
 namespace CleanArchitecture.Application.Users.GetUsersDapperPagination;
 
-public class GetUsersDapperPaginationQueryHandler : IQueryHandler<GetUsersDapperPaginationQuery, PagedDapperResults<UserPaginationDapperData>>
+internal sealed class GetUsersDapperPaginationQueryHandler : IQueryHandler<GetUsersDapperPaginationQuery, PagedDapperResults<UserPaginationDapperData>>
 {
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
 

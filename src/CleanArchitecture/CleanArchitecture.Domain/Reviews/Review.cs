@@ -8,6 +8,9 @@ namespace CleanArchitecture.Domain.Reviews;
 
 public sealed class Review : Entity<ReviewId>
 {
+    private Review()
+    {
+    }
     private Review(
         ReviewId id,
         VehiculoId vehiculoId,

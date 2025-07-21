@@ -23,7 +23,7 @@ where TEntityId : class
         return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
-    public void Add(TEntity entity) => _dbContext.Add(entity);
+    public virtual void Add(TEntity entity) => _dbContext.Add(entity);
 
 
     public IQueryable<TEntity> ApplySpecification(ISpecification<TEntity, TEntityId> spec)

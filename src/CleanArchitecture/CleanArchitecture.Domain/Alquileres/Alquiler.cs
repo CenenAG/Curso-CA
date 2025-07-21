@@ -8,10 +8,10 @@ namespace CleanArchitecture.Domain.Alquileres;
 
 public sealed class Alquiler : Entity<AlquilerId>
 {
-    public Alquiler()
+    private Alquiler()
     {
-
     }
+
     private Alquiler(
         AlquilerId id,
         VehiculoId vehiculoId,

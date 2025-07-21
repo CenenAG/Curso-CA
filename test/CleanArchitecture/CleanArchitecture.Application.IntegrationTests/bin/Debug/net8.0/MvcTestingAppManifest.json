@@ -1,0 +1,6 @@
+{
+  "CleanArchitecture.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\repos\\Curso-CA\\src\\CleanArchitecture\\CleanArchitecture.Api",
+  "CleanArchitecture.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\repos\\Curso-CA\\src\\CleanArchitecture\\CleanArchitecture.Application",
+  "CleanArchitecture.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\repos\\Curso-CA\\src\\CleanArchitecture\\CleanArchitecture.Domain",
+  "CleanArchitecture.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\repos\\Curso-CA\\src\\CleanArchitecture\\CleanArchitecture.Infrastructure"
+}

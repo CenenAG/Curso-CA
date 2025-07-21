@@ -1,5 +1,5 @@
+using CleanArchitecture.Application.Abstractions.Authentication;
 using CleanArchitecture.Application.Abstractions.Data;
-using CleanArchitecture.Application.Authentication;
 using CleanArchitecture.Domain.Users;
 using Dapper;
 using Microsoft.Extensions.Options;

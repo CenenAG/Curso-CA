@@ -4,13 +4,13 @@ using CleanArchitecture.Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using CleanArchitecture.Api.OptionsSetup;
-using CleanArchitecture.Application.Authentication;
 using CleanArchitecture.Infrastructure.Authentication;
 using Serilog;
 using CleanArchitecture.Api.Documentation;
 using CleanArchitecture.Api.Controllers.Alquileres;
 using Asp.Versioning.Builder;
 using Asp.Versioning;
+using CleanArchitecture.Application.Abstractions.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,3 +93,5 @@ var routeGroupBuilder = app
 routeGroupBuilder.MapAlquilerEndPoints();
 
 app.Run();
+
+public partial class Program;

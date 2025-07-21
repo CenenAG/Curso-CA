@@ -6,10 +6,11 @@ namespace CleanArchitecture.Domain.Users;
 
 public class User : Entity<UserId>
 {
-    public User()
+    private User()
     {
-
     }
+    private readonly List<Role> _roles = new();
+
     private User(
         UserId id,
         Nombre? nombre = null,
@@ -27,7 +28,7 @@ public class User : Entity<UserId>
     public Apellido? Apellido { get; private set; }
     public Email? Email { get; private set; }
     public PasswordHash? PasswordHash { get; private set; }
-    public ICollection<Role>? Roles { get; private set; }
+    public IReadOnlyCollection<Role>? Roles => _roles.ToList();
 
     public static User Create(
         Nombre nombre,
@@ -46,6 +47,7 @@ public class User : Entity<UserId>
 
         // Raise domain event
         user.RaiseDomainEvent(new Events.UserCreatedDomainEvent(user.Id));
+        user._roles.Add(Role.Cliente);
 
         return user;
     }

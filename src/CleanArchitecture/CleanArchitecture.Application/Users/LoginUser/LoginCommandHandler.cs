@@ -1,5 +1,5 @@
+using CleanArchitecture.Application.Abstractions.Authentication;
 using CleanArchitecture.Application.Abstractions.Messaging;
-using CleanArchitecture.Application.Authentication;
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Users;
 
