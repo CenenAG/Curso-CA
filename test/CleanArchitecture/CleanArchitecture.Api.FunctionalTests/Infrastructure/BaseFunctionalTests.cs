@@ -31,7 +31,7 @@ public abstract class BaseFunctionalTests : IClassFixture<FuncionalTestWebAppFac
         {
             var token = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Login successful, token length: {token?.Length ?? 0}");
-            return token;
+            return token?.Trim('"') ?? string.Empty;
         }
         else
         {

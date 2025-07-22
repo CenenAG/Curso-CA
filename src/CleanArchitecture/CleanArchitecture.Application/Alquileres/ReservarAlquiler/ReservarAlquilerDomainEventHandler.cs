@@ -35,9 +35,8 @@ internal sealed class ReservarAlquilerDomainEventHandler : INotificationHandler<
             return;
         }
 
-        await _emailService.SendAsync(
-            user.Email!,
-            "Alquiler reservado",
-            $"El alquiler del vehiculo {alquiler.VehiculoId} ha sido reservado, debera ser confirmado o rechazado dentro de 24 hrs");
+        _emailService.Send(user.Email!.Value!,
+           "Alquiler reservado",
+           $"El alquiler del vehiculo {alquiler.VehiculoId} ha sido reservado, debera ser confirmado o rechazado dentro de 24 hrs");
     }
 }

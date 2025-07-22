@@ -11,6 +11,9 @@ using CleanArchitecture.Api.Controllers.Alquileres;
 using Asp.Versioning.Builder;
 using Asp.Versioning;
 using CleanArchitecture.Application.Abstractions.Authentication;
+using CleanArchitecture.Infrastructure.Email;
+using CleanArchitecture.Application.Abstractions.Email;
+using QuestPDF;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +25,12 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer();
 
+QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
 builder.Services.ConfigureOptions<JwtOptionsSetup>();
 builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
+builder.Services.Configure<GmailSettings>(builder.Configuration.GetSection("GmailSettings"));
 
 builder.Services.AddTransient<IJwtProvider, JwtProvider>();
 

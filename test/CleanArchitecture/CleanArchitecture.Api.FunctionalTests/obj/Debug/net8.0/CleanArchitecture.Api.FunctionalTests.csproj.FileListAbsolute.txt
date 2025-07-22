@@ -485,3 +485,15 @@ D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\b
 D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\CleanArchitecture.Application.pdb
 D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\CleanArchitecture.Domain.pdb
 D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\CleanArchitecture.Infrastructure.pdb
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\HarfBuzzSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\QuestPDF.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\SkiaSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\SkiaSharp.HarfBuzz.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\osx\native\libSkiaSharp.dylib
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
+D:\repos\Curso-CA\test\CleanArchitecture\CleanArchitecture.Api.FunctionalTests\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll

@@ -30,8 +30,7 @@ public sealed class UserCreatedDomainEventHandler : INotificationHandler<UserCre
             return;
         }
 
-        await _emailService.SendAsync(
-            user.Email!,
+        _emailService.Send(user.Email!.Value!,
             "Se ha creado su cuenta en nuestr a App",
             "Tienes una nueva cuenta en nuestra aplicación Clean Architecture");
     }

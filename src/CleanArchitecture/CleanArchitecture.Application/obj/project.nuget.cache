@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o4SSF3owV/0=",
+  "dgSpecHash": "ftSpI31VO+Y=",
   "success": true,
   "projectFilePath": "D:\\repos\\Curso-CA\\src\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\agtec\\.nuget\\packages\\dapper\\2.1.15\\dapper.2.1.15.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0\\harfbuzzsharp.nativeassets.macos.7.3.0.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0\\harfbuzzsharp.nativeassets.win32.7.3.0.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\linqkit.core\\1.2.4\\linqkit.core.1.2.4.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\linqkit.microsoft.entityframeworkcore\\7.1.4\\linqkit.microsoft.entityframeworkcore.7.1.4.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
@@ -23,7 +26,12 @@
     "C:\\Users\\agtec\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0-rc.2.23479.6\\microsoft.extensions.logging.abstractions.8.0.0-rc.2.23479.6.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\agtec\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\agtec\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512"
+    "C:\\Users\\agtec\\.nuget\\packages\\questpdf\\2023.12.0\\questpdf.2023.12.0.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\skiasharp\\2.88.6\\skiasharp.2.88.6.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.6\\skiasharp.harfbuzz.2.88.6.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.6\\skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
+    "C:\\Users\\agtec\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.6\\skiasharp.nativeassets.win32.2.88.6.nupkg.sha512"
   ],
   "logs": []
 }
